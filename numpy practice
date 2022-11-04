@@ -1,0 +1,324 @@
+1.	Write a NumPy program to get the numpy version and show numpy build configuration.
+2.	Write a NumPy program to get help on the add function.
+3.	Write a NumPy program to test whether none of the elements of a given array is zero.
+4.	Write a NumPy program to create an array of 10 zeros, 10 ones, 10 fives.
+5.	Write a NumPy program to create an array of all the even integers from 30 to 70.
+6.	Write a NumPy program to create a 3x3 identity matrix.
+7.	Write a NumPy program to create a vector with values from 0 to 20 and change the sign of the numbers in the range from 9 to 15.
+8.	Write a NumPy program to find the number of rows and columns of a given matrix.
+9.	Write a NumPy program to create a 10x10 matrix, in which the elements on the borders will be equal to 1, and inside 0.
+10.	Write a NumPy program to compute sum of all elements, sum of each column and sum of each row of a given array.
+11.	Write a NumPy program to convert a given list into an array, then again convert it into a list. Check initial list and final list are equal or not.
+12.	Write a NumPy program to create a 3x3x3 array filled with arbitrary values.
+13.	Write a NumPy program to create a 5x5 zero matrix with elements on the main diagonal equal to 1, 2, 3, 4, 5.
+14.	Write a NumPy program to extract all numbers from a given array which are less and greater than a specified number.
+15.	Write a NumPy program to compute the sum of the diagonal element of a given array.
+16.	Get the common items between two arrays.
+a = np.array([1,2,3,2,3,4,3,4,5,6])
+b = np.array([7,2,10,2,7,4,9,4,9,8])
+Desired Output:
+array([2, 4])
+
+codes and outputs:
+
+1.
+ import numpy as np
+print(np.__version__)
+print(np.show_config())
+output:
+1.20.3
+blas_mkl_info:
+    libraries = ['mkl_rt']
+    library_dirs = ['C:/ProgramData/Anaconda3\\Library\\lib']
+    define_macros = [('SCIPY_MKL_H', None), ('HAVE_CBLAS', None)]
+    include_dirs = ['C:/ProgramData/Anaconda3\\Library\\include']
+blas_opt_info:
+    libraries = ['mkl_rt']
+    library_dirs = ['C:/ProgramData/Anaconda3\\Library\\lib']
+    define_macros = [('SCIPY_MKL_H', None), ('HAVE_CBLAS', None)]
+    include_dirs = ['C:/ProgramData/Anaconda3\\Library\\include']
+lapack_mkl_info:
+    libraries = ['mkl_rt']
+    library_dirs = ['C:/ProgramData/Anaconda3\\Library\\lib']
+    define_macros = [('SCIPY_MKL_H', None), ('HAVE_CBLAS', None)]
+    include_dirs = ['C:/ProgramData/Anaconda3\\Library\\include']
+lapack_opt_info:
+    libraries = ['mkl_rt']
+    library_dirs = ['C:/ProgramData/Anaconda3\\Library\\lib']
+    define_macros = [('SCIPY_MKL_H', None), ('HAVE_CBLAS', None)]
+    include_dirs = ['C:/ProgramData/Anaconda3\\Library\\include']
+None
+2.
+import numpy as np
+print(np.info(np.add))
+output:
+add(x1, x2, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])
+
+Add arguments element-wise.
+
+Parameters
+----------
+x1, x2 : array_like
+    The arrays to be added.
+    If ``x1.shape != x2.shape``, they must be broadcastable to a common
+    shape (which becomes the shape of the output).
+out : ndarray, None, or tuple of ndarray and None, optional
+    A location into which the result is stored. If provided, it must have
+    a shape that the inputs broadcast to. If not provided or None,
+    a freshly-allocated array is returned. A tuple (possible only as a
+    keyword argument) must have length equal to the number of outputs.
+where : array_like, optional
+    This condition is broadcast over the input. At locations where the
+    condition is True, the `out` array will be set to the ufunc result.
+    Elsewhere, the `out` array will retain its original value.
+    Note that if an uninitialized `out` array is created via the default
+    ``out=None``, locations within it where the condition is False will
+    remain uninitialized.
+**kwargs
+    For other keyword-only arguments, see the
+    :ref:`ufunc docs <ufuncs.kwargs>`.
+
+Returns
+-------
+add : ndarray or scalar
+    The sum of `x1` and `x2`, element-wise.
+    This is a scalar if both `x1` and `x2` are scalars.
+
+Notes
+-----
+Equivalent to `x1` + `x2` in terms of array broadcasting.
+
+Examples
+--------
+>>> np.add(1.0, 4.0)
+5.0
+>>> x1 = np.arange(9.0).reshape((3, 3))
+>>> x2 = np.arange(3.0)
+>>> np.add(x1, x2)
+array([[  0.,   2.,   4.],
+       [  3.,   5.,   7.],
+       [  6.,   8.,  10.]])
+
+The ``+`` operator can be used as a shorthand for ``np.add`` on ndarrays.
+
+>>> x1 = np.arange(9.0).reshape((3, 3))
+>>> x2 = np.arange(3.0)
+>>> x1 + x2
+array([[ 0.,  2.,  4.],
+       [ 3.,  5.,  7.],
+       [ 6.,  8., 10.]])
+None
+
+3.
+x=list(map(int,input("enter list:").strip().split()))
+x=np.array(x)
+a=np.all(x)
+if a==True:
+    print("list dosenot having element 0")
+else:
+    print("list having element 0")
+output:
+enter list:1 2 3 4 5
+list dosenot having element 0
+
+4.
+import numpy as np
+array=np.zeros(10)
+print("An array of 10 zeros:")
+print(array)
+array=np.ones(10)
+print("An array of 10 ones:")
+print(array)
+array=np.ones(10)*5
+print("An array of 10 fives:")
+print(array)
+output:
+An array of 10 zeros:
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+An array of 10 ones:
+[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+An array of 10 fives:
+[5. 5. 5. 5. 5. 5. 5. 5. 5. 5.]
+
+5.
+import numpy as np
+a=np.arange(30,71,2)
+print("Array of all the even integers from 30 to 70")
+print(a) 
+output:
+Array of all the even integers from 30 to 70
+[30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70]
+
+6.
+import numpy as np
+a=np.identity(3)
+print('3x3 identify matrix:')
+print(a)
+output:
+3x3 identify matrix:
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+
+7.
+import numpy as np
+x = np.arange(21)
+print("Original vector:")
+print(x)
+print("After changing the sign of the numbers in the range from 9 to 15:")
+x[(x >= 9) & (x <= 15)] *= -1
+print(x)
+output:'
+Original vector:
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+After changing the sign of the numbers in the range from 9 to 15:
+[  0   1   2   3   4   5   6   7   8  -9 -10 -11 -12 -13 -14 -15  16  17
+  18  19  20]
+
+8.
+x=[1,2,3,4,5,6,7,8,9]
+x=np.matrix(x).reshape(3,3)
+print(x)
+print(x.shape)
+output:
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+(3, 3)
+
+9.
+import numpy as np
+x = np.ones((10, 10))
+x[1:-1, 1:-1] = 0
+print(x)
+output:
+[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+
+10.
+import numpy as np
+x = np.array([[1,2,3],[4,5,6]])
+print("Original array:")
+print(x)
+print("Sum of all elements:")
+print(np.sum(x))
+print("Sum of each column:")
+print(np.sum(x, axis=0))
+print("Sum of each row:")
+print(np.sum(x, axis=1))
+output:
+Original array:
+[[1 2 3]
+ [4 5 6]]
+Sum of all elements:
+21
+Sum of each column:
+[5 7 9]
+Sum of each row:
+[ 6 15]
+
+11.
+import numpy as np
+a = [[1, 2], [3, 4]]
+x = np.array(a)
+a2 = x.tolist()
+if a==a2:
+    print("initial list and final list are equal")
+else:
+    print("initial list and final list are not equal")
+output:
+initial list and final list are equal
+
+12.
+import numpy as np
+x = np.random.random((3, 3, 3))
+print(x)
+output:
+[[[0.87515661 0.52992251 0.19828075]
+  [0.1257456  0.76047611 0.12322443]
+  [0.47629184 0.16532506 0.51048128]]
+
+ [[0.21517186 0.81630724 0.35501445]
+  [0.91257365 0.24591344 0.97776623]
+  [0.24973264 0.54464335 0.72778547]]
+
+ [[0.33032526 0.88552604 0.18921076]
+  [0.01130073 0.95931775 0.07344442]
+  [0.9705474  0.20153737 0.57215718]]]
+
+13.
+import numpy as np
+x = np.diag([1, 2, 3, 4, 5])
+print(x)
+output:
+[[1 0 0 0 0]
+ [0 2 0 0 0]
+ [0 0 3 0 0]
+ [0 0 0 4 0]
+ [0 0 0 0 5]]
+
+14.
+import numpy as np
+nums=list(map(int,input("enter list:").strip().split()))
+nums = np.array(nums)
+print("Original array:")
+print(nums)
+n = int(input("enter specified number:"))
+print("\nElements of the said array greater than",n)
+print(nums[nums > n])
+print("\nElements of the said array less than",n)
+print(nums[nums < n])
+output:
+enter list:1 2 3 4 5 6 7 8 9 0
+Original array:
+[1 2 3 4 5 6 7 8 9 0]
+enter specified number:5
+
+Elements of the said array greater than 5
+[6 7 8 9]
+
+Elements of the said array less than 5
+[1 2 3 4 0]
+
+15.
+import numpy as np
+m = np.arange(9).reshape(3,3)
+print("Original matrix:")
+print(m)
+result =  np.trace(m)
+print("sum of diagonal elements of given array:")
+print(result)
+output:
+Original matrix:
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+sum of diagonal elements of given array:
+12
+
+16.
+import numpy as np
+a = list(map(int,input("enter list:").strip().split()))
+a=np.array(a)
+print("Array1: ",array1)
+b = list(map(int,input("enter list:").strip().split()))
+b=np.array(b)
+print("Array2: ",array2)
+print("Common values between two arrays:")
+print(np.intersect1d(a,b))
+output:
+enter list:1 2 3 4 5 5
+Array1:  [ 0 10 20 40 60]
+enter list:2 3 8 9 0 6
+Array2:  [10, 30, 40]
+Common values between two arrays:
+[2 3]
+
